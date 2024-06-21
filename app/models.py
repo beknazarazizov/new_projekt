@@ -15,6 +15,17 @@ class Product(models.Model):
     reting=models.FloatField()
     discount=models.IntegerField(default=0)
     quantity=models.IntegerField(default=0)
+
+    def get_atribute(self) ->list[dict]:
+        product_atributes=ProductAtribute.objects.filter(product=self)
+        atributes=[]
+        for pa in product_atributes:
+            atributes.append({
+                'atribute_key':pa.atribute.key_name,
+                'atribute_value':pa.atribute_value.value_name
+            })
+        return atributes
+
     @property
     def discount_price(self):
         if self.discount > 0:
@@ -26,6 +37,31 @@ class Product(models.Model):
     
 class Image(models.Model):
     image=models.ImageField(upload_to='product')
-    product=models.ForeignKey('app.Product',on_delete=models.SET_NULL,null=True)
+    product=models.ForeignKey('app.Product',on_delete=models.SET_NULL,related_name='images',null=True)
+
+
+
+class Atribute(models.Model):
+    key_name=models.CharField(max_length=125)
+    
+    def __str__(self):
+        return self.key_name
+
+
+
+
+class AtributeValue(models.Model):
+    value_name=models.CharField(max_length=125)
+    
+    def __str__(self):
+        return self.value_name
+   
+
+class ProductAtribute(models.Model):
+    product=models.ForeignKey('app.Product',on_delete=models.CASCADE)
+    atribute=models.ForeignKey('app.Atribute',on_delete=models.CASCADE)
+    atribute_value=models.ForeignKey('app.AtributeValue',on_delete=models.CASCADE)
 
 #py manage.py makemigrations
+
+
