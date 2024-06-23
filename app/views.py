@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from app.models import Product
-from app.forms import ProductMdelForm
+from app.forms import ProductModelForm
 from app.forms import ProductForm
 from django.shortcuts import redirect
 # Create your views here.
@@ -40,9 +40,9 @@ def product_detail(request,product_id):
 #     return render(request,'app/add_product.html',context)
 
 def add_product(request):
-    form = ProductMdelForm()
+    form = ProductModelForm()
     if request.method =='POST':
-        form = ProductMdelForm(request.POST)
+        form = ProductModelForm(request.POST)
         if form.is_valid():
             form.save()
             return redirect('index')

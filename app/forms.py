@@ -10,7 +10,7 @@ class ProductForm(forms.Form):
     discount=forms.IntegerField()
     quantity=forms.IntegerField()
 
-class ProductMdelForm(forms.ModelForm):
+class ProductModelForm(forms.ModelForm):
     class Meta:
         model = Product
         # fields = ['title','descriptions','price','reting','discount','quantity']

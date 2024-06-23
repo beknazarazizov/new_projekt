@@ -10,7 +10,7 @@ admin.site.register(Atribute)
 admin.site.register(ProductAtribute)
 admin.site.register(AtributeValue)
 
-admin.site.unregister(Group)
-admin.site.unregister(User)
+# admin.site.unregister(Group)
+# admin.site.unregister(User)
 
 

@@ -1430,7 +1430,7 @@
                       <!-- more inner pages-->
                     </li>
                     <li class="nav-item"><a class="nav-link" href="../../documentation/customization/dark-mode.html" aria-expanded="false">
-                        <div class="d-flex align-items-center"><span class="nav-link-text ps-1">Dark mode</span><span class="badge rounded-pill ms-2 badge-soft-success">New</span>
+                        <div class="d-flex align-items-center"><span class="nav-link-text ps-1">Dark mode</span><span class="badge rounded-pill ms-2 badge-soft-success">+New</span>
                         </div>
                       </a>
                       <!-- more inner pages-->
@@ -1482,7 +1482,7 @@
               <li class="nav-item">
                 <div class="search-box" data-list='{"valueNames":["title"]}'>
                   <form class="position-relative" data-bs-toggle="search" data-bs-display="static">
-                    <input class="form-control search-input fuzzy-search" type="search" placeholder="Search..." aria-label="Search" />
+                    <input class="form-control search-input fuzzy-search" type="search" name="search" placeholder="Search..." aria-label="Search" />
                     <span class="fas fa-search search-box-icon"></span>
 
                   </form>
@@ -1745,7 +1745,8 @@
                     </div>
                   </div>
                   <div id="table-customers-replace-element">
-                    <button class="btn btn-falcon-default btn-sm" type="button"><span class="fas fa-plus" data-fa-transform="shrink-3 down-2"></span><span class="d-none d-sm-inline-block ms-1">New</span></button>
+                    <button class="btn btn-falcon-default btn-sm" type="button"><span class="fas fa-plus" data-fa-transform="shrink-3 down-2"></span><span class="d-none d-sm-inline-block ms-1"><a
+                            href="{% url 'add_customer' %}">+New</a></span></button>
                     <button class="btn btn-falcon-default btn-sm mx-2" type="button"><span class="fas fa-filter" data-fa-transform="shrink-3 down-2"></span><span class="d-none d-sm-inline-block ms-1">Filter</span></button>
                     <button class="btn btn-falcon-default btn-sm" type="button"><span class="fas fa-external-link-alt" data-fa-transform="shrink-3 down-2"></span><span class="d-none d-sm-inline-block ms-1">Export</span></button>
                   </div>
@@ -1797,7 +1798,8 @@
                         <div class="dropdown font-sans-serif position-static">
                           <button class="btn btn-link text-600 btn-sm dropdown-toggle btn-reveal" type="button" id="customer-dropdown-0" data-bs-toggle="dropdown" data-boundary="window" aria-haspopup="true" aria-expanded="false"><span class="fas fa-ellipsis-h fs--1"></span></button>
                           <div class="dropdown-menu dropdown-menu-end border py-0" aria-labelledby="customer-dropdown-0">
-                            <div class="bg-white py-2"><a class="dropdown-item" href="#!">Edit</a><a class="dropdown-item text-danger" href="#!">Delete</a></div>
+                            <div class="bg-white py-2"><a class="dropdown-item" href="{% url 'edit' customer.id %}">Edit</a>
+                                <a class="dropdown-item text-danger" href="{% url 'delete' customer.id %}">Delete</a></div>
                           </div>
                         </div>
                       </td>
@@ -1989,6 +1991,7 @@
         </div><small class="text-uppercase text-primary fw-bold bg-soft-primary py-2 pe-2 ps-1 rounded-end">customize</small>
       </div>
     </a>
+    
 
 
     <!-- ===============================================-->
